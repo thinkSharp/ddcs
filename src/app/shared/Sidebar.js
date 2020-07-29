@@ -33,6 +33,8 @@ class Sidebar extends Component {
 
     const dropdownPaths = [
       {path:'/basic-ui', state: 'basicUiMenuOpen'},
+      {path:'/registration', state: 'registrationMenuOpen'},
+      {path:'/depository', state:'depositoryMenuOpen'},
       {path:'/form-elements', state: 'formElementsMenuOpen'},
       {path:'/tables', state: 'tablesMenuOpen'},
       {path:'/icons', state: 'iconsMenuOpen'},
@@ -107,6 +109,41 @@ class Sidebar extends Component {
               <span className="menu-title">Dashboard</span>
             </Link>
           </li>
+          
+          <li className={ this.isPathActive('/registration') ? 'nav-item active' : 'nav-item' }>
+            <div className={ this.state.registrationMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('registrationMenuOpen') } data-toggle="collapse">
+              <i className="mdi mdi-folder-plus menu-icon"></i>
+              <span className="menu-title">Dataset Registry</span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.registrationMenuOpen }>
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item"> <Link className={ this.isPathActive('/registration/search-registry') ? 'nav-link active' : 'nav-link' } to="/registration/search-registry">Search</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/registration/register-dataset') ? 'nav-link active' : 'nav-link' } to="/registration/register-dataset">Register</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/registration/dataset-correction') ? 'nav-link active' : 'nav-link' } to="/registration/dataset-correction">Correction</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/registration/schema-update') ? 'nav-link active' : 'nav-link' } to="/registration/schema-update">Update Schema</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/registration/cancel-dataset') ? 'nav-link active' : 'nav-link' } to="/registration/cancel-dataset">Cancel Registry</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/registration/manage-polling-dataset') ? 'nav-link active' : 'nav-link' } to="/registration/manage-polling-dataset">Manage Polling</Link></li>
+              </ul>
+            </Collapse>
+          </li>
+          <li className={ this.isPathActive('/depository') ? 'nav-item active' : 'nav-item' }>
+            <div className={ this.state.depositoryMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('depositoryMenuOpen') } data-toggle="collapse">
+              <i className="mdi mdi-folder-multiple menu-icon"></i>
+              <span className="menu-title">Dataset Depository</span>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={ this.state.depositoryMenuOpen }>
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item"> <Link className={ this.isPathActive('/depository/ad-hoc') ? 'nav-link active' : 'nav-link' } to="/depository/ad-hoc">Ad-Hoc</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/depository/create-subscription') ? 'nav-link active' : 'nav-link' } to="/depository/create-subscription">Create</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/depository/update-subscription') ? 'nav-link active' : 'nav-link' } to="/depository/update-subscription">Update</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/depository/delete-subscription') ? 'nav-link active' : 'nav-link' } to="/depository/delete-subscription">Delete</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/depository/dataset-data-profile') ? 'nav-link active' : 'nav-link' } to="/depository/dataset-data-profile">Data Profiles</Link></li>
+                <li className="nav-item"> <Link className={ this.isPathActive('/depository/dataset-data-quality') ? 'nav-link active' : 'nav-link' } to="/depository/dataset-data-quality">Data Quality</Link></li>
+              </ul>
+            </Collapse>
+          </li>
           <li className={ this.isPathActive('/basic-ui') ? 'nav-item active' : 'nav-item' }>
             <div className={ this.state.basicUiMenuOpen ? 'nav-link menu-expanded' : 'nav-link' } onClick={ () => this.toggleMenuState('basicUiMenuOpen') } data-toggle="collapse">
               <i className="mdi mdi-crosshairs-gps menu-icon"></i>
@@ -160,12 +197,6 @@ class Sidebar extends Component {
                 <li className="nav-item"> <Link className={ this.isPathActive('/user-pages/error-500') ? 'nav-link active' : 'nav-link' } to="/user-pages/error-500">500</Link></li>
               </ul>
             </Collapse>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="http://www.bootstrapdash.com/demo/star-admin-free/react/documentation/documentation.html" rel="noopener noreferrer" target="_blank">
-              <i className="mdi mdi-file-outline menu-icon"></i>
-              <span className="menu-title">Documentation</span>
-            </a>
           </li>
         </ul>
       </nav>
