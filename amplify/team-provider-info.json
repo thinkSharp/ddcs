@@ -10,6 +10,14 @@
             "StackName": "amplify-ddcs-dev-165639",
             "StackId": "arn:aws:cloudformation:us-east-1:729849979377:stack/amplify-ddcs-dev-165639/da61e020-d114-11ea-9a08-0e8805686543",
             "AmplifyAppId": "d3eut52foil0ty"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3eut52foil0ty",
+                    "type": "manual"
+                }
+            }
         }
     }
 }
